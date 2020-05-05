@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 05, 2020 at 03:40 AM
+-- Generation Time: May 05, 2020 at 11:58 AM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.1
 
@@ -19,57 +19,8 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `ahowfuture2`
+-- Database: `e-tailor`
 --
-
--- --------------------------------------------------------
-
---
--- Table structure for table `chat`
---
-
-CREATE TABLE `chat` (
-  `chat_id` int(11) NOT NULL,
-  `send_to` int(5) NOT NULL,
-  `send_by` int(3) NOT NULL,
-  `message` tinytext NOT NULL,
-  `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `files`
---
-
-CREATE TABLE `files` (
-  `id` int(11) NOT NULL,
-  `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `file_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `created` datetime NOT NULL,
-  `modified` datetime NOT NULL,
-  `status` enum('1','0') COLLATE utf8_unicode_ci NOT NULL DEFAULT '1'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `grup_bimbel`
---
-
-CREATE TABLE `grup_bimbel` (
-  `id_grup` int(11) NOT NULL,
-  `nama_grup` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `grup_bimbel`
---
-
-INSERT INTO `grup_bimbel` (`id_grup`, `nama_grup`) VALUES
-(1, 'SAINTEK'),
-(2, 'SOSHUM'),
-(3, 'CAMPURAN');
 
 -- --------------------------------------------------------
 
@@ -238,26 +189,6 @@ INSERT INTO `universitas` (`id_universitas`, `nama_universitas`, `total_prodi`, 
 --
 
 --
--- Indexes for table `chat`
---
-ALTER TABLE `chat`
-  ADD PRIMARY KEY (`chat_id`),
-  ADD KEY `sent_to` (`send_to`),
-  ADD KEY `send_by` (`send_by`);
-
---
--- Indexes for table `files`
---
-ALTER TABLE `files`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `grup_bimbel`
---
-ALTER TABLE `grup_bimbel`
-  ADD PRIMARY KEY (`id_grup`);
-
---
 -- Indexes for table `jurusan`
 --
 ALTER TABLE `jurusan`
@@ -292,24 +223,6 @@ ALTER TABLE `universitas`
 --
 
 --
--- AUTO_INCREMENT for table `chat`
---
-ALTER TABLE `chat`
-  MODIFY `chat_id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `files`
---
-ALTER TABLE `files`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `grup_bimbel`
---
-ALTER TABLE `grup_bimbel`
-  MODIFY `id_grup` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
 -- AUTO_INCREMENT for table `jurusan`
 --
 ALTER TABLE `jurusan`
@@ -338,16 +251,6 @@ ALTER TABLE `tbl_siswa`
 --
 ALTER TABLE `universitas`
   MODIFY `id_universitas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `chat`
---
-ALTER TABLE `chat`
-  ADD CONSTRAINT `chat_ibfk_1` FOREIGN KEY (`send_by`) REFERENCES `tbl_siswa` (`id_siswa`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
