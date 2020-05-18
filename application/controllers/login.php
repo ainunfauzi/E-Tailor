@@ -16,8 +16,7 @@ class login extends CI_Controller{
 		$password=htmlspecialchars($this->input->post("password",TRUE),ENT_QUOTES);
 	
 	$cek_admin=$this->login_model->admin($username,$password);
-	$cek_pengajar=$this->login_model->pengajar($username,$password);
-	$cek_siswa=$this->login_model->siswa($username,$password);
+	$cek_user=$this->login_model->user($username,$password);
 	if($cek_admin->num_rows() > 0){
 		$data=$cek_admin->row_array();
 		$this->session->set_userdata('masuk',TRUE);
@@ -26,20 +25,12 @@ class login extends CI_Controller{
 		$this->session->set_userdata('ses_nama',$data['nama_admin']);
 		redirect('controller_page');
 	}
-	elseif($cek_pengajar->num_rows() > 0){
-		$data=$cek_pengajar->row_array();
+	elseif($cek_user->num_rows() > 0){
+		$data=$cek_user->row_array();
 		$this->session->set_userdata('masuk',TRUE);
 		$this->session->set_userdata('akses','2');
-		$this->session->set_userdata('ses_id',$data['id_pengajar']);
-		$this->session->set_userdata('ses_nama',$data['nama_pengajar']);
-		redirect('controller_page');
-	}
-	elseif($cek_siswa->num_rows() > 0){
-		$data=$cek_siswa->row_array();
-		$this->session->set_userdata('masuk',TRUE);
-		$this->session->set_userdata('akses','3');
-		$this->session->set_userdata('ses_id',$data['id_siswa']);
-		$this->session->set_userdata('ses_nama',$data['nama_siswa']);
+		$this->session->set_userdata('ses_id',$data['id_user']);
+		$this->session->set_userdata('ses_nama',$data['nama_user']);
 		redirect('controller_page');
 	}
 }

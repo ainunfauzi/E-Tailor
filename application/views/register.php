@@ -53,12 +53,13 @@
 <div id="container">
 <h2 align="center">Register</h2>
 <form method="post" action="<?php echo base_url(). 'index.php/ctrl_register/insert'?>">
-	Nama <input type="text" name="nama_siswa" placeholder="Nama" required><br><br>
+	Nama <input type="text" name="nama_user" placeholder="Nama" required><br><br>
 	Tgl Lahir <input type="date" name="tgl_lahir" placeholder="tgl lahir" required><br><br>
-	Email <input type="text" name="email_siswa" placeholder="Email" required><br><br>
-	No HP <input type="text" name="nohp_siswa" placeholder="NO HP" required><br><br>
-	Username <input type="text" name="username_siswa" placeholder="Username" required><br><br>
-	Password <input type="password" name="password_siswa" placeholder="Password" required><br>
+	Email <input type="text" name="email_user" placeholder="Email" required><br><br>
+	Alamat <input type="text" name="alamat" placeholder="Alamat" required><br><br>
+	No HP <input type="text" name="nohp_user" placeholder="NO HP" required><br><br>
+	Username <input type="text" name="username_user" placeholder="Username" required><br><br>
+	Password <input type="password" name="password_user" placeholder="Password" required><br>
 	<input type="submit" name="go" value='kirim'>
 <div>
 </form>

@@ -4,12 +4,8 @@ class login_model extends CI_Model{
 		$query = $this->db->query("SELECT * FROM `tbl_admin` WHERE username_admin= '$username' AND password_admin= '$password'");
 		return $query;
 	}
-	function pengajar($username,$password){
-		$query = $this->db->query("SELECT * FROM `tbl_pengajar` WHERE username_pengajar='$username' AND password_pengajar='$password'");
-		return $query;
-	}
-	function siswa($username,$password){
-		$query = $this->db->query("SELECT * FROM `tbl_siswa` WHERE username_siswa='$username' AND password_siswa='$password'");
+	function user($username,$password){
+		$query = $this->db->query("SELECT * FROM `tbl_user` WHERE username_user='$username' AND password_user='$password'");
 		return $query;
 	}
 }
